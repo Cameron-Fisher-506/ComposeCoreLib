@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2025 Cameron Fisher - All Rights Reserved
+ * You may use, distribute and modify this Open Source Project
+ */
 package com.example.composecorelib.miscellaneous
 
 import androidx.compose.foundation.background

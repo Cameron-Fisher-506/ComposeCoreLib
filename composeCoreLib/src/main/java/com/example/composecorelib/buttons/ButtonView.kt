@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2025 Cameron Fisher - All Rights Reserved
+ * You may use, distribute and modify this Open Source Project
+ */
 package com.example.composecorelib.buttons
 
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -10,7 +14,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.tooling.preview.Preview
