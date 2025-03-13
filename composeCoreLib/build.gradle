@@ -61,9 +61,9 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
 
-                groupId = 'com.github.cameron-fisher-506'
-                artifactId = 'compose-core-lib'
-                version = '1.0.5'
+                groupId = 'com.github.Cameron-Fisher-506'
+                artifactId = 'composeCoreLib'
+                version = '1.0.0'
             }
         }
     }
