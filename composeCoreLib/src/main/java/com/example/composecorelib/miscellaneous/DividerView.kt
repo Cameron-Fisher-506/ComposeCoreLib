@@ -1,9 +1,12 @@
+/*
+ * Copyright (C) 2025 Cameron Fisher - All Rights Reserved
+ * You may use, distribute and modify this Open Source Project
+ */
 package com.example.composecorelib.miscellaneous
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Divider
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
