@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "ComposeCoreLib"
 include(":app")
+include(":composeCoreLib")
