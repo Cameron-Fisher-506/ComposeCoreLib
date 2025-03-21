@@ -30,19 +30,27 @@ fun PlaceholderView(
             verticalAlignment = Alignment.CenterVertically
         ) {
             text.toCharArray().forEach { character ->
-                val filteredCharacter: Char = lettersToDisplay.firstOrNull {
-                    character.equals(it, true)
-                } ?: ' '
+                if (character != ' ') {
+                    val filteredCharacter: Char = lettersToDisplay.firstOrNull {
+                        character.equals(it, true)
+                    } ?: '_'
 
-                if (!filteredCharacter.isWhitespace()) {
-                    Text(
-                        text = " ${filteredCharacter.uppercase()} ",
-                        fontWeight = FontWeight.Bold,
-                        style = MaterialTheme.typography.titleLarge
-                    )
+                    if (!filteredCharacter.equals('_', true)) {
+                        Text(
+                            text = filteredCharacter.uppercase(),
+                            fontWeight = FontWeight.Bold,
+                            style = MaterialTheme.typography.titleLarge
+                        )
+                    } else {
+                        Text(
+                            text = " _ ",
+                            fontWeight = FontWeight.Bold,
+                            style = MaterialTheme.typography.titleLarge
+                        )
+                    }
                 } else {
                     Text(
-                        text = " _ ",
+                        text = "  ",
                         fontWeight = FontWeight.Bold,
                         style = MaterialTheme.typography.titleLarge
                     )
@@ -55,5 +63,5 @@ fun PlaceholderView(
 @Preview(showBackground = true)
 @Composable
 fun PlaceholderViewPreview() {
-    PlaceholderView(text = "cameron")
+    PlaceholderView(text = "Now now", lettersToDisplay = listOf('N', 'o', 'w'))
 }
