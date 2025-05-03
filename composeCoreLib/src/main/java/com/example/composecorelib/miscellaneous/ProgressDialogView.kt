@@ -10,10 +10,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -23,17 +19,18 @@ import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 
 @Composable
-fun ProgressDialog(isLoading: Boolean = false) {
-    var showDialog by remember { mutableStateOf(isLoading) }
-
-    if (showDialog) {
+fun ProgressDialogView(
+    modifier: Modifier = Modifier,
+    isLoading: Boolean = false
+) {
+    if (isLoading) {
         Dialog(
-            onDismissRequest = { showDialog = false },
+            onDismissRequest = { },
             DialogProperties(dismissOnBackPress = false, dismissOnClickOutside = false)
         ) {
             Box(
-                contentAlignment= Alignment.Center,
-                modifier = Modifier
+                contentAlignment = Alignment.Center,
+                modifier = modifier
                     .size(100.dp)
                     .background(Color(Color.White.value), shape = RoundedCornerShape(8.dp))
             ) {
@@ -41,10 +38,11 @@ fun ProgressDialog(isLoading: Boolean = false) {
             }
         }
     }
+
 }
 
 @Preview
 @Composable
-fun ProgressDialogPreview() {
-    ProgressDialog(true)
+fun ProgressDialogViewPreview() {
+    ProgressDialogView(isLoading = true)
 }
