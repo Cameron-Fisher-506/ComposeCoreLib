@@ -39,6 +39,7 @@ fun CardIconLinearProgressTextView(
     modifier: Modifier = Modifier,
     text: String = "",
     progress: Float = 0.0f,
+    progressColor: Color = Color.Red,
     icon: Painter? = null,
     onClick: () -> Unit
 ) {
@@ -84,6 +85,7 @@ fun CardIconLinearProgressTextView(
 
             LinearProgressIndicator(
                 progress = { progress },
+                color = progressColor,
                 modifier = modifier
                     .fillMaxWidth()
                     .padding(16.dp)
@@ -106,6 +108,7 @@ fun CardIconLinearProgressTextViewPreview() {
     CardIconLinearProgressTextView(
         modifier = Modifier.background(Color.LightGray),
         text = "Mzanzi",
+        progress = 0.5f,
         icon = painterResource(R.drawable.placeholder)
     ) {
 
