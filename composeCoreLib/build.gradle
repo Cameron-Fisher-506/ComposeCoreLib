@@ -63,7 +63,7 @@ afterEvaluate {
 
                 groupId = 'com.github.Cameron-Fisher-506'
                 artifactId = 'composeCoreLib'
-                version = '1.0.9'
+                version = '1.0.13'
             }
         }
     }
