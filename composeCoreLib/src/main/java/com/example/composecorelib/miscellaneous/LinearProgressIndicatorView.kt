@@ -18,9 +18,11 @@ import androidx.compose.ui.unit.dp
 fun LinearProgressIndicatorView(
     modifier: Modifier = Modifier,
     progress: Float = 0.0f,
+    color: Color = Color.Red
 ) {
     LinearProgressIndicator(
         progress = { progress },
+        color = color,
         modifier = modifier
             .fillMaxWidth()
             .padding(16.dp)
