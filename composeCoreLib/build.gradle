@@ -49,6 +49,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.material.icons.extended)
 
     //Coil
     implementation(libs.coil.compose)
@@ -63,7 +64,7 @@ afterEvaluate {
 
                 groupId = 'com.github.Cameron-Fisher-506'
                 artifactId = 'composeCoreLib'
-                version = '1.0.13'
+                version = '1.0.14'
             }
         }
     }
