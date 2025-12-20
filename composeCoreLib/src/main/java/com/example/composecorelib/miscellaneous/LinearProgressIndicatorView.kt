@@ -18,11 +18,13 @@ import androidx.compose.ui.unit.dp
 fun LinearProgressIndicatorView(
     modifier: Modifier = Modifier,
     progress: Float = 0.0f,
-    color: Color = Color.Red
+    color: Color = Color.Red,
+    trackColor: Color = Color.LightGray
 ) {
     LinearProgressIndicator(
         progress = { progress },
         color = color,
+        trackColor = trackColor,
         modifier = modifier
             .fillMaxWidth()
             .padding(16.dp)
@@ -32,5 +34,8 @@ fun LinearProgressIndicatorView(
 @Preview(showBackground = true)
 @Composable
 fun LinearProgressIndicatorViewPreview() {
-    LinearProgressIndicatorView(modifier = Modifier.background(Color.LightGray))
+    LinearProgressIndicatorView(
+        modifier = Modifier.background(Color.LightGray),
+        progress = 0.5f
+    )
 }

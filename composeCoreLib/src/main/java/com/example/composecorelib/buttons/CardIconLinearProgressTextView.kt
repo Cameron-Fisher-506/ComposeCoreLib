@@ -40,6 +40,7 @@ fun CardIconLinearProgressTextView(
     text: String = "",
     progress: Float = 0.0f,
     progressColor: Color = Color.Red,
+    trackColor: Color = Color.LightGray,
     icon: Painter? = null,
     onClick: () -> Unit
 ) {
@@ -86,6 +87,7 @@ fun CardIconLinearProgressTextView(
             LinearProgressIndicator(
                 progress = { progress },
                 color = progressColor,
+                trackColor = trackColor,
                 modifier = modifier
                     .fillMaxWidth()
                     .padding(16.dp)
