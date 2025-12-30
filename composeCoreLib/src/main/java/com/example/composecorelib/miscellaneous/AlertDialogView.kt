@@ -20,6 +20,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -29,11 +30,12 @@ fun AlertDialogView(
     openDialog: Boolean = false,
     title: String = "",
     description: String = "",
-    positiveButtonText: String = "POSITIVE",
-    negativeButtonText: String = "NEGATIVE",
+    positiveButtonText: String = "",
+    negativeButtonText: String = "",
     onPositiveButtonClick: () -> Unit,
     onNegativeButtonClick: () -> Unit,
-    onDismiss: () -> Unit
+    onDismiss: () -> Unit,
+    content: @Composable (() -> Unit),
 ) {
 
     if (openDialog) {
@@ -60,30 +62,54 @@ fun AlertDialogView(
                         style = MaterialTheme.typography.bodyMedium
                     )
                     Spacer(modifier = modifier.height(16.dp))
+                    content()
+
                     Row(
                         modifier = modifier
                             .padding(end = 16.dp)
                             .align(alignment = Alignment.End)
                     ) {
-                        TextButton(
-                            onClick = {
-                                onDismiss()
-                                onNegativeButtonClick()
+                        if (negativeButtonText.isNotBlank()) {
+                            TextButton(
+                                onClick = {
+                                    onDismiss()
+                                    onNegativeButtonClick()
+                                }
+                            ) {
+                                Text(text = negativeButtonText)
                             }
-                        ) {
-                            Text(text = negativeButtonText)
                         }
-                        TextButton(
-                            onClick = {
-                                onDismiss()
-                                onPositiveButtonClick()
+
+                        if (positiveButtonText.isNotBlank()) {
+                            TextButton(
+                                onClick = {
+                                    onDismiss()
+                                    onPositiveButtonClick()
+                                }
+                            ) {
+                                Text(text = positiveButtonText)
                             }
-                        ) {
-                            Text(text = positiveButtonText)
                         }
                     }
                 }
             }
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun AlertDialogPreview() {
+    AlertDialogView(
+        openDialog = true,
+        title = "Select a Province",
+        description = "Please select a province.",
+        positiveButtonText = "Done",
+        onPositiveButtonClick = {},
+        onNegativeButtonClick = {},
+        onDismiss = {}) {
+        DropdownView("Province", options = listOf("Gauteng", "Kwa-zulu Natal", "Western Cape")) {
+
         }
     }
 }
