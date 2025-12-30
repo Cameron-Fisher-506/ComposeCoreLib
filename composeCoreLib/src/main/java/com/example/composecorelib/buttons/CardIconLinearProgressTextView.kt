@@ -42,6 +42,7 @@ fun CardIconLinearProgressTextView(
     progressColor: Color = Color.Red,
     trackColor: Color = Color.LightGray,
     icon: Painter? = null,
+    options: List<String> = listOf(),
     onClick: () -> Unit
 ) {
     Card(
