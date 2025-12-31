@@ -30,9 +30,9 @@ import com.example.composecorelib.miscellaneous.DividerView
 
 @Composable
 fun OptionActionView(
-    icon: Painter = painterResource(R.drawable.placeholder),
-    text: String,
     modifier: Modifier = Modifier,
+    icon: Painter? = null,
+    text: String,
     showDividerView: Boolean = false,
     centerText: Boolean = true,
     onClick: () -> Unit
@@ -47,11 +47,14 @@ fun OptionActionView(
                 horizontalArrangement = if (centerText) Arrangement.SpaceBetween else Arrangement.Start,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Image(
-                    painter = icon,
-                    contentDescription = stringResource(R.string.information),
-                    modifier = modifier.size(35.dp)
-                )
+                if (icon != null) {
+                    Image(
+                        painter = icon,
+                        contentDescription = stringResource(R.string.information),
+                        modifier = modifier.size(35.dp)
+                    )
+                }
+
                 Text(
                     text = text,
                     style = MaterialTheme.typography.titleMedium,
@@ -77,7 +80,6 @@ fun OptionActionView(
 @Composable
 fun PreviewOptionActionView() {
     OptionActionView(
-        icon = painterResource(R.drawable.ic_launcher_background),
         text = "Information",
         centerText = false
     ) {
