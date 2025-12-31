@@ -34,8 +34,7 @@ fun AlertDialogView(
     negativeButtonText: String = "",
     onPositiveButtonClick: () -> Unit,
     onNegativeButtonClick: () -> Unit,
-    onDismiss: () -> Unit,
-    content: @Composable (() -> Unit),
+    onDismiss: () -> Unit
 ) {
 
     if (openDialog) {
@@ -62,8 +61,6 @@ fun AlertDialogView(
                         style = MaterialTheme.typography.bodyMedium
                     )
                     Spacer(modifier = modifier.height(16.dp))
-                    content()
-
                     Row(
                         modifier = modifier
                             .padding(end = 16.dp)
@@ -106,10 +103,6 @@ fun AlertDialogPreview() {
         description = "Please select a province.",
         positiveButtonText = "Done",
         onPositiveButtonClick = {},
-        onNegativeButtonClick = {},
-        onDismiss = {}) {
-        DropdownView("Province", options = listOf("Gauteng", "Kwa-zulu Natal", "Western Cape")) {
-
-        }
+        onNegativeButtonClick = {}) {
     }
 }
